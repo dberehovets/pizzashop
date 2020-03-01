@@ -3,14 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Головна</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
 
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 <body>
-    <h2>Привіт, Піцерія!</h2>
-    <a href="{% url 'pizzashop-sign-out' %}">Вийти</a>
+    <h2>Сторінка реєстрації</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ pizzashop_form.as_p }}
+        <button type="submit">Зареєструвати</button>
+    </form>
 </body>
 </html>
