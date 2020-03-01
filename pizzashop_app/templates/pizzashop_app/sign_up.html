@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+{% extends "base_signup.html" %}
+{% load bootstrap3 %}
 
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</head>
-<body>
-    <h2>Сторінка реєстрації</h2>
-    <form method="post">
+{% block title %}Реєстрація{% endblock %}
+
+{% block heading %}Піцерія - сторінка реєстрації{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ pizzashop_form.as_p }}
-        <button type="submit">Зареєструвати</button>
+        <h3>Власник</h3>
+        {% bootstrap_form user_form %}
+        <h3>Піцерія</h3>
+        {% bootstrap_form pizzashop_form %}
+        <button type="submit" class="btn btn-red float-right">Зареєструвати</button>
     </form>
-</body>
-</html>
+<a href="{% url 'pizzashop-sign-in' %}">Ви маєте профіль?</a>
+{% endblock %}
