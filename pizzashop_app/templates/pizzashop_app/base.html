@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block sidebar %}
+
+{% url 'pizzashop-pizza' as pizzashop_pizza_url %}
+{% url 'pizzashop-account' as pizzashop_account_url %}
 <div class="text-center">
     <br>
     <img class="rounded-circle" src="{{ MEDIA_URL }}{{ request.user.pizzashop.logo }}" width="100" height="100">
@@ -12,9 +15,19 @@
     <br>
     <h4>Вітаю, {{ request.user.get_full_name }}</h4>
     <h5>{{ request.user.pizzashop.name }}</h5>
+
 </div>
-<a href="/pizzashop/account">Профіль</a>
--
-<a href="/pizzashop/pizza">Меню</a>
+<div class="list-group">
+        <span class="text-center text-uppercase">Панель</span>
+        <a href="{% url 'pizzashop-pizza' %}" class="list-group-item {% if request.path == pizzashop_pizza_url %} active {% endif %}">Меню</a>
+
+        <span class="text-center text-uppercase">Профіль</span>
+        <a href="{% url 'pizzashop-account' %}" class="list-group-item {% if request.path == pizzashop_account_url %} active {% endif %}">Профіль</a>
+    </div>
+
+    <div class="text-center">
+        <br>
+        <a href="{% url 'pizzashop-sign-out' %}?next={{ request.path }}" class="btn btn-red">Вийти</a>
+    </div>
 
 {% endblock %}

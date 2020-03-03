@@ -11,3 +11,14 @@ class PizzaShop(Model):
 
     def __str__(self):
         return self.name
+
+
+class Pizza(Model):
+    pizzashop = ForeignKey(PizzaShop, on_delete=CASCADE)
+    name = CharField(max_length=30)
+    short_description = CharField(max_length=100)
+    image = ImageField(upload_to='pizza_images', blank=False)
+    price = IntegerField(default=0)
+
+    def __str__(self):
+        return self.name

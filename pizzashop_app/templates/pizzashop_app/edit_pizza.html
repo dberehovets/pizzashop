@@ -8,14 +8,13 @@
     <div class="card">
         <div class="card-header bg-ruby">
             <h4 class="card-title text-center text-white">
-                Профіль
+                Відредагувати піцу
             </h4>
         </div>
         <div class="card-body">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {% bootstrap_form user_form %}
-                {% bootstrap_form pizzashop_form %}
+                {% bootstrap_form form %}
                 <button type="submit" class="btn btn-red">Оновити</button>
             </form>
         </div>

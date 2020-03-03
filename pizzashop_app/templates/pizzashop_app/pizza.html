@@ -3,4 +3,41 @@
 {% block title %}Піца{% endblock %}
 
 {% block page %}
+<div class="offset-lg-4 col-lg-10">
+<div class="card">
+  <div class="card-header bg-ruby">
+    <h4 class="card-title text-center text-white">Список піц</h4>
+  </div>
+  <div class="card-body">
+    <div class="text-right">
+      <a href="{% url 'pizzashop-add-pizza' %}" class="btn btn-red">Додати піцу</a>
+      <br>
+      <br>
+    </div>
+    <table class="table table-bordered table-hover table-striped">
+      <thread>
+        <tr class="bg-danger text-white text-center">
+          <th>ID</th>
+          <th>Назва</th>
+          <th>Короткий опис</th>
+          <th>Ціна</th>
+          <th class="text-center">Зображення</th>
+        </tr>
+      </thread>
+      <tbody>
+      {% for pizza in pizzas %}
+        <tr>
+          <td scope="row">{{ pizza.id }}</td>
+          <td><a href="{% url 'pizzashop-edit-pizza' pizza.id %}">{{ pizza.name }}</a> </td>
+          <td>{{ pizza.short_description }}</td>
+          <td>{{ pizza.price }}</td>
+          <td class="text-center"><img src="{{ MEDIA_URL }}{{ pizza.image }}" class="rounded" width="50" height="50"></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+  </div>
+
 {% endblock %}
