@@ -1,7 +1,7 @@
-Вебсайт не є задеплоєним. Зроблений лише для практики.
+The website is not deployed. This has been made for practice only.
 
-Функціонал:
-1. Вивід різних магазинів сітки піцерій.
-2. Вивід категорій та продуктів.
-3. Можливість реєструвати піцерію та акаунти.
+Functionality:
+1. Showing different shops of the chain of pizzashops.
+2. Showing categories and products.
+3. Possibility to register new pizzashops and accounts.
 4. Rest Api.
